@@ -1,0 +1,13 @@
+{
+  "name": "GBGO_emulator",
+  "version": "1.0.0",
+  "description": "A Gameboy emulator built with WebAssembly",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "author": "Jérémy Vachon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

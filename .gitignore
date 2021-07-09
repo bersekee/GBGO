@@ -1,0 +1,16 @@
+
+.vscode/
+.vs/
+
+node_modules/
+
+src/project
+
+assets/
+!assets/.keep
+
+src/project
+!src/project/.keep
+
+public/js/GBGO.js
+public/js/GBGO.wasm

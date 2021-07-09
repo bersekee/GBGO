@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>GBGO</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script src="js/GBGO.js"></script>
+  <script src="js/GBGO_interface.js"></script>
+</head>
+<body>
+
+  <header id="page-header" class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-top-app-bar--dense">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <span class="mdc-top-app-bar__title">GBGO Emulator</span>
+        <i class="material-icons title-logo">videogame_asset</i>
+      </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Refresh this page" onclick="window.open('https://github.com/bersekee/GBGO')">star</button>
+        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Refresh this page" onclick="location.reload()">refresh</button>
+      </section>
+    </div>
+  </header>
+
+  <div id="mem-dialog" class="mdc-dialog">
+    <div id="mem-dialog-container" class="mdc-dialog__container">
+      <div id="mem-dialog-surface" class="mdc-dialog__surface">
+        <h2 class="mdc-dialog__title" id="my-dialog-title">Memory</h2>
+        <div class="mdc-dialog__content">
+          <div class="mdc-data-table">
+            <div class="mdc-data-table__table-container">
+              <table id="mem-dialog-table" class="mdc-data-table__table"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="row">
+      <div class="game-column">
+        <div id="game-wrapper">
+          <div id="fps-counter"></div>
+          <canvas id="game-canvas"></canvas>
+        </div>
+      </div>
+      <div class="settings-column">
+        <div class="settings-wrapper">
+          <ul class="mdc-list">
+
+            <div>
+              <li class="mdc-list-item dropdown-title">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">Cartridge</span>
+                <i class="material-icons dropdown-button">keyboard_arrow_down</i>
+              </li>
+              <ul class="mdc-list hidden">
+                <li class="mdc-list-item not-clickable">
+                  <button id="pick-game-button" class="mdc-button">
+                    <div class="mdc-button__ripple"></div>
+                    <span id="pick-game-label" class="mdc-button__label">Pick game</span>
+                  </button>
+                  <input id="pick-game-input" class="mdc-button__ripple" type="file">
+                  <button id="load-game-button" class="mdc-button mdc-button--outlined">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">load</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <li role="separator" class="mdc-list-divider"></li>
+
+            <div>
+              <li class="mdc-list-item dropdown-title">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">CPU</span>
+                <i class="material-icons dropdown-button">keyboard_arrow_down</i>
+              </li>
+              <ul class="mdc-list hidden">
+                <li class="mdc-list-item mdc-list-item--disabled cpu-info-item">
+                  <div id="cpu-info"></div>
+                </li>
+                <li id="cpu-speed-item" class="mdc-list-item not-clickable">
+                  <span class="mdc-list-item__text list-item-label">Speed</span>
+                  <label id="cpu-speed-text-field" class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label">
+                    <span class="mdc-text-field__ripple"></span>
+                    <input id="cpu-speed-input" class="mdc-text-field__input" type="number" min="0" step="0.01" value="1.0">
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <li role="separator" class="mdc-list-divider"></li>
+
+            <div>
+              <li class="mdc-list-item dropdown-title">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">Video</span>
+                <i class="material-icons dropdown-button">keyboard_arrow_down</i>
+              </li>
+              <ul class="mdc-list hidden dropdown-list">
+                <li class="mdc-list-item not-clickable">
+                  <span class="mdc-list-item__text list-item-label">Classic palette</span>
+                  <div id="classic-palette-switch" class="mdc-switch">
+                    <div class="mdc-switch__track"></div>
+                    <div class="mdc-switch__thumb-underlay">
+                      <div class="mdc-switch__thumb"></div>
+                      <input type="checkbox" id="classic-palette-input" class="mdc-switch__native-control" role="switch" aria-checked="true">
+                    </div>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
